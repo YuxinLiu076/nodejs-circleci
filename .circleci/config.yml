@@ -17,11 +17,11 @@ jobs:
             echo $VAULT_SECRET_ID	> vault/secret-id
             echo $VAULT_SECRET_ID
             vault agent -config=vault/agent.hcl
-            source vault/dockerhub
+            source /tmp/vault/dockerhub
             echo $DOCKER_LOGIN
             echo $DOCKER_PWD
       - persist_to_workspace:
-          root: vault
+          root: /tmp
           paths:
             - "*"
   say-hello:
@@ -30,11 +30,11 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: vault
+          at: /tmp
       - run:
           name: "Say hello"
           command: |
-            ls vault
+            ls /tmp
             source /tmp/vault/dockerhub
             echo $DOCKER_LOGIN
             echo $DOCKER_PWD

@@ -23,5 +23,5 @@ template {
     export DOCKER_PWD={{ .Data.data.pwd }}
     {{ end }}
   EOF
-  destination = "vault/dockerhub"
+  destination = "/tmp/vault/dockerhub"
 }
