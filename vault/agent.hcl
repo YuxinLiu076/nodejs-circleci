@@ -25,12 +25,3 @@ template {
   EOF
   destination = "vault/dockerhub"
 }
-
-template {
-  contents = <<EOF
-    {{ with secret "gcp/key/hello" }}
-    {{ .Data.private_key_data | base64Decode }}
-    {{ end }}
-  EOF
-  destination = "/tmp/service-account"
-}
