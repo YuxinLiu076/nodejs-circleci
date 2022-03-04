@@ -34,8 +34,8 @@ jobs:
       - run:
           name: "Say hello"
           command: |
-            ls tmp
-            source tmp/vault/dockerhub
+            ls /tmp
+            source /tmp/vault/dockerhub
             echo $DOCKER_LOGIN
             echo $DOCKER_PWD
 workflows:
