@@ -16,19 +16,27 @@ jobs:
             echo $VAULT_ROLE_ID > vault/role-id
             echo $VAULT_SECRET_ID	> vault/secret-id
             echo $VAULT_SECRET_ID
-            echo "============================================"
             vault agent -config=vault/agent.hcl
-            echo "============================================1"
             source vault/dockerhub
-            echo "============================================2"
             echo $DOCKER_LOGIN
             echo $DOCKER_PWD
       - persist_to_workspace:
           root: /tmp
           paths:
             - "*"
+  say-hello:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - run:
+          name: "Say hello"
+          command: |
+            source vault/dockerhub
+            echo $DOCKER_LOGIN
+            echo $DOCKER_PWD
 workflows:
   build_test:
     jobs:
       - vault_auth
-           
+      - say-hello
