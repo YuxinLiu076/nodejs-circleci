@@ -10,7 +10,7 @@ jobs:
           docker_layer_caching: false
       - run:
           command: |
-            export VAULT_NAMESPACE=hello/kugo
+            export VAULT_NAMESPACE=admin
             export TAG=0.1.${CIRCLE_BUILD_NUM}
             export IMAGE_NAME=$CIRCLE_PROJECT_REPONAME
             echo $VAULT_ROLE_ID > vault/role-id
