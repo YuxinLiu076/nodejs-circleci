@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   vault_auth:
     docker:
-      - image: joatmon08/circleci-gcp-agent:287.0-1.14.72
+      - image: vault:1.3.3
     steps:
       - checkout
       - setup_remote_docker:
