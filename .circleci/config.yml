@@ -43,6 +43,6 @@ workflows:
   build_test:
     jobs:
       - vault_auth
-  build_test1:
-    jobs:
-      - say-hello
+      - say-hello:
+          requires:
+            - vault_auth
