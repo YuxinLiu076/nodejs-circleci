@@ -29,10 +29,12 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
+      - attach_workspace:
+          at: /tmp
       - run:
           name: "Say hello"
           command: |
-            source vault/dockerhub
+            source tmp/vault/dockerhub
             echo $DOCKER_LOGIN
             echo $DOCKER_PWD
 workflows:
