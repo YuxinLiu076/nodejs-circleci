@@ -34,6 +34,7 @@ jobs:
       - run:
           name: "Say hello"
           command: |
+            cat /tmp/vault/dockerhub
             ls /tmp
             source /tmp/vault/dockerhub
             echo $DOCKER_LOGIN
