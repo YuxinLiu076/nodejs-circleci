@@ -17,7 +17,7 @@ jobs:
             echo $VAULT_SECRET_ID	> vault/secret-id
             echo $VAULT_SECRET_ID
             vault agent -config=vault/agent.hcl
-            source /tmp/vault/dockerhub
+            source /tmp/login
             echo $DOCKER_LOGIN
             echo $DOCKER_PWD
       - persist_to_workspace:
@@ -34,9 +34,9 @@ jobs:
       - run:
           name: "Say hello"
           command: |
-            cat /tmp/vault/dockerhub
             ls /tmp
-            source /tmp/vault/dockerhub
+            cat /tmp/login
+            source /tmp/login
             echo $DOCKER_LOGIN
             echo $DOCKER_PWD
 workflows:
