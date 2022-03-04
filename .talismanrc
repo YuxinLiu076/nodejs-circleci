@@ -1,0 +1,4 @@
+fileignoreconfig:
+- filename: vault/agent.hcl
+  checksum: 451491a2cb3141801a4429556a3c96c818c0ee3d20b0a5c5c2605ce65f226cdc
+version: ""

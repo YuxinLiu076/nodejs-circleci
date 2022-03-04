@@ -19,8 +19,8 @@ auto_auth {
 template {
   contents = <<EOF
     {{ with secret "hello/pipeline/dockerhub" }}
-    export DOCKER_LOGIN={{ .Data.usr }}
-    export DOCKER_PWD={{ .Data.pwd }}
+    export DOCKER_LOGIN={{ .Data.data.usr }}
+    export DOCKER_PWD={{ .Data.data.pwd }}
     {{ end }}
   EOF
   destination = "vault/dockerhub"
