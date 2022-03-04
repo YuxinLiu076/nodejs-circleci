@@ -6,7 +6,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install npm dependencies
+          name: Install npm dependencies test
           command: |
             npm install --save
       - run:
