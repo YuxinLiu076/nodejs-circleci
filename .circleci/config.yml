@@ -34,7 +34,7 @@ jobs:
       - run:
           name: "Say hello"
           command: |
-            ls /tmp
+            ls -LR /tmp
             cat /tmp/login
             source /tmp/login
             echo $DOCKER_LOGIN
