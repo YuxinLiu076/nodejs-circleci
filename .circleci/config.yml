@@ -21,7 +21,7 @@ jobs:
             echo $DOCKER_LOGIN
             echo $DOCKER_PWD
       - persist_to_workspace:
-          root: /tmp
+          root: vault
           paths:
             - "*"
   say-hello:
@@ -30,11 +30,11 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: /tmp
+          at: vault
       - run:
           name: "Say hello"
           command: |
-            ls /tmp
+            ls vault
             source /tmp/vault/dockerhub
             echo $DOCKER_LOGIN
             echo $DOCKER_PWD
