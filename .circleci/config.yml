@@ -15,8 +15,12 @@ jobs:
             export IMAGE_NAME=$CIRCLE_PROJECT_REPONAME
             echo $VAULT_ROLE_ID > vault/role-id
             echo $VAULT_SECRET_ID	> vault/secret-id
+            echo $VAULT_SECRET_ID
+            echo "============================================"
             vault agent -config=vault/agent.hcl
+            echo "============================================1"
             source vault/dockerhub
+            echo "============================================2"
             echo $DOCKER_LOGIN
             echo $DOCKER_PWD
       - persist_to_workspace:
